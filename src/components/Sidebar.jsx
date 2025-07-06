@@ -17,7 +17,7 @@ import {
   Menu,
   X,
 } from "lucide-react";
-
+import pro from "@/assets/profile.jpg"
 const Sidebar = () => {
   const location = useLocation();
   const [open, setOpen] = useState(false);
@@ -92,7 +92,7 @@ const Sidebar = () => {
           {/* Profile */}
           <div className="flex flex-col items-center text-center mb-10">
             <img
-              src="src/assets/profile.jpg"
+              src={pro}
               alt="Profile"
               className="w-28 h-28 rounded-full border-2 border-border shadow-md"
             />
