@@ -21,8 +21,8 @@ const education = [
     description:
       "Specialized in Mathematics, Physics, and Chemistry. Developed strong analytical and problem-solving skills.",
   },
-   {
-    degree: "SSC ",
+  {
+    degree: "SSC",
     institution: "SASI English Medium High School",
     period: "2019 - 2020",
     gpa: "99%",
@@ -33,7 +33,7 @@ const education = [
 
 export default function Education() {
   return (
-    <section id="education" className="py-20 relative">
+    <section id="education" className="py-20 relative bg-background text-foreground font-sans">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <motion.div
@@ -44,7 +44,7 @@ export default function Education() {
           className="text-center mb-16"
         >
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Education</h2>
-          <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+          <p className="text-base md:text-lg text-muted-foreground max-w-3xl mx-auto">
             My academic journey and the foundation that shaped my technical expertise.
           </p>
         </motion.div>
@@ -68,7 +68,7 @@ export default function Education() {
                   isLeft ? "md:justify-start" : "md:justify-end"
                 }`}
               >
-                {/* Empty side */}
+                {/* Empty side for alignment */}
                 {!isLeft && <div className="hidden md:block md:w-1/2" />}
 
                 {/* Timeline Dot */}
@@ -77,30 +77,30 @@ export default function Education() {
                 {/* Card */}
                 <div className="md:w-1/2">
                   <Card className="hover:shadow-lg transition-all duration-300 hover:scale-[1.02]">
-                    <CardContent className="p-8">
+                    <CardContent className="p-6 md:p-8">
                       <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
                         <div className="flex items-center space-x-3 mb-2 md:mb-0">
                           <GraduationCap className="h-6 w-6 text-primary" />
-                          <h3 className="text-xl font-semibold text-foreground">
+                          <h3 className="text-lg md:text-xl font-semibold text-foreground">
                             {edu.degree}
                           </h3>
                         </div>
-                        <div className="flex items-center space-x-2 text-muted-foreground">
+                        <div className="flex items-center space-x-2 text-sm text-muted-foreground">
                           <Calendar className="h-4 w-4" />
                           <span>{edu.period}</span>
                         </div>
                       </div>
 
-                      <div className="space-y-2">
-                        <p className="text-lg font-medium text-primary">{edu.institution}</p>
-                        <p className="text-lg font-semibold text-green-600">{edu.gpa}</p>
-                        <p className="text-muted-foreground">{edu.description}</p>
+                      <div className="space-y-1">
+                        <p className="text-base font-medium text-primary">{edu.institution}</p>
+                        <p className="text-sm font-semibold text-green-600">{edu.gpa}</p>
+                        <p className="text-sm text-muted-foreground">{edu.description}</p>
                       </div>
                     </CardContent>
                   </Card>
                 </div>
 
-                {/* Empty side */}
+                {/* Opposite side empty block */}
                 {isLeft && <div className="hidden md:block md:w-1/2" />}
               </motion.div>
             )
