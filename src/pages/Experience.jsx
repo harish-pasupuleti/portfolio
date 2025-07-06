@@ -22,13 +22,13 @@ const experience = [
     tech: ["React.js", "Node.js", "MongoDB", "HTML", "CSS", "JavaScript"],
   },
   {
-  role: "Cloud Virtual Internship",
-  company: "AWS & Eduskills",
-  period: "Jan 2024 - Mar 2024 (Virtual)",
-  description:
-    "Gained hands-on experience with AWS cloud services including EC2, S3, Lambda, and IAM. Worked on cloud architecture, deployment automation, and secure resource management. Explored scalability, elasticity, and monitoring tools within AWS.",
-  tech: ["AWS", "EC2", "S3", "Lambda", "IAM", "CloudWatch"],
-},
+    role: "Cloud Virtual Internship",
+    company: "AWS & Eduskills",
+    period: "Jan 2024 - Mar 2024 (Virtual)",
+    description:
+      "Gained hands-on experience with AWS cloud services including EC2, S3, Lambda, and IAM. Worked on cloud architecture, deployment automation, and secure resource management. Explored scalability, elasticity, and monitoring tools within AWS.",
+    tech: ["AWS", "EC2", "S3", "Lambda", "IAM", "CloudWatch"],
+  },
   {
     role: "AI & ML Virtual Internship",
     company: "AWS & Eduskills",
@@ -37,11 +37,11 @@ const experience = [
       "Worked on real-world AI/ML problems using AWS SageMaker and Python. Developed, trained, and deployed machine learning models. Learned model evaluation techniques and best practices for working with structured data.",
     tech: ["Python", "AWS SageMaker", "Machine Learning", "Pandas", "Scikit-learn"],
   },
-];
+]
 
 export default function Experience() {
   return (
-    <section id="experience" className="py-20 relative">
+    <section id="experience" className="py-20 relative bg-background text-foreground font-sans">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <motion.div
@@ -51,8 +51,8 @@ export default function Experience() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Experience</h2>
-          <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">Experience</h2>
+          <p className="text-base md:text-lg text-muted-foreground max-w-3xl mx-auto">
             Roles I've taken up and skills I've developed through professional and virtual experiences.
           </p>
         </motion.div>
@@ -63,7 +63,7 @@ export default function Experience() {
         {/* Timeline Cards */}
         <div className="flex flex-col gap-16 relative z-10">
           {experience.map((exp, index) => {
-            const isLeft = index % 2 === 0;
+            const isLeft = index % 2 === 0
 
             return (
               <motion.div
@@ -84,23 +84,21 @@ export default function Experience() {
                 {/* Card */}
                 <div className="md:w-1/2">
                   <Card className="hover:shadow-lg transition-all duration-300 hover:scale-[1.02]">
-                    <CardContent className="p-8">
+                    <CardContent className="p-6 md:p-8">
                       <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
                         <div className="flex items-center space-x-3 mb-2 md:mb-0">
                           <GraduationCap className="h-6 w-6 text-primary" />
-                          <h3 className="text-xl font-semibold text-foreground">
-                            {exp.role}
-                          </h3>
+                          <h3 className="text-lg md:text-xl font-semibold">{exp.role}</h3>
                         </div>
-                        <div className="flex items-center space-x-2 text-muted-foreground">
+                        <div className="flex items-center space-x-2 text-sm text-muted-foreground">
                           <Calendar className="h-4 w-4" />
                           <span>{exp.period}</span>
                         </div>
                       </div>
 
                       <div className="space-y-2">
-                        <p className="text-lg font-medium text-primary">{exp.company}</p>
-                        <p className="text-muted-foreground">{exp.description}</p>
+                        <p className="text-base font-medium text-primary">{exp.company}</p>
+                        <p className="text-sm text-muted-foreground">{exp.description}</p>
                         <ul className="flex flex-wrap gap-2 text-sm text-blue-600 mt-2">
                           {exp.tech.map((tech, idx) => (
                             <li key={idx} className="bg-blue-100 px-2 py-1 rounded">
@@ -115,10 +113,10 @@ export default function Experience() {
 
                 {isLeft && <div className="hidden md:block md:w-1/2" />}
               </motion.div>
-            );
+            )
           })}
         </div>
       </div>
     </section>
-  );
+  )
 }

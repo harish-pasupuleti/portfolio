@@ -1,11 +1,12 @@
-"use client";
+"use client"
 
-import { useState } from "react";
-import { motion } from "framer-motion";
-import { Card, CardContent } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
-import { Github } from "lucide-react";
+import { useState } from "react"
+import { motion } from "framer-motion"
+import { Card, CardContent } from "@/components/ui/card"
+import { Badge } from "@/components/ui/badge"
+import { Button } from "@/components/ui/button"
+import { Github } from "lucide-react"
+
 import spotify from "@/assets/spotify.png"
 import aiPdf from "@/assets/aiPdf.png"
 import todo from "@/assets/todo.png"
@@ -20,14 +21,13 @@ const projectCategories = [
   { id: "web", title: "Web Development" },
   { id: "ml", title: "Machine Learning" },
   { id: "others", title: "Others" },
-];
+]
 
 const projects = [
-  // 🔴 ADVANCED PROJECTS
   {
     name: "Spotify Clone",
     description:
-      "A full-featured music streaming platform built with the MERN stack and Cloudinary. Users can stream songs, manage playlists, and browse albums. An admin panel enables media uploads and user management. It showcases authentication, media handling, and a fully responsive design.",
+      "A full-featured music streaming platform built with the MERN stack and Cloudinary. Users can stream songs, manage playlists, and browse albums.",
     tags: ["MongoDB", "Express", "React", "Node.js", "Cloudinary"],
     image: spotify,
     github: "https://github.com/harish-pasupuleti/Spotify-Clone",
@@ -36,65 +36,61 @@ const projects = [
   {
     name: "AI PDF Summarizer",
     description:
-      "An AI-powered summarization tool built with Next.js and Gemini API. Users can upload lengthy PDFs and receive concise, intelligent summaries. This project handles file parsing, API integration, and modern UI rendering for productivity-focused users.",
+      "An AI-powered tool using Gemini API that summarizes PDFs. Upload PDFs to receive concise summaries. Built with Next.js.",
     tags: ["Next.js", "Gemini API", "AI"],
     image: aiPdf,
     github: "https://github.com/harish-pasupuleti/AI_Pdf_Summary",
     category: "web",
   },
   {
-    name: "TripNest AI - Smart Travel Planner",
+    name: "TripNest AI",
     description:
-      "An intelligent travel assistant built with React, Gemini API, and Firebase. Users enter travel preferences and receive personalized itinerary suggestions. Features secure login, AI-powered results, and a sleek, responsive design.",
+      "A smart travel planner using React, Firebase, and Gemini API. Users receive personalized itineraries based on preferences.",
     tags: ["React", "Firebase", "Gemini API"],
     image: aitrip,
     github: "https://github.com/harish-pasupuleti/aiTrip",
     category: "web",
   },
   {
-    name: "Q-Free - Queue-less Management System",
+    name: "Q-Free - Queue Management",
     description:
-      "A smart digital queue system developed using React, Node.js, MongoDB, and Socket.io. Users can book virtual tokens and receive real-time updates. Designed to eliminate physical waiting lines in offices, clinics, and banks.",
+      "A real-time digital token system using Socket.io. Avoid physical queues in banks, clinics, etc.",
     tags: ["React", "Node.js", "MongoDB", "Socket.io"],
     image: queue,
     github: "https://github.com/harish-pasupuleti/queue-management",
     category: "web",
   },
-
-  // 🟡 INTERMEDIATE PROJECTS
   {
     name: "Chat App",
     description:
-      "A real-time chat application built with React.js and Firebase. Users can send and receive messages instantly, with Firebase handling authentication and data updates. The UI is minimal, fast, and responsive.",
+      "A real-time chat app with Firebase authentication. Clean UI and instant messaging.",
     tags: ["React.js", "Firebase", "Tailwind CSS"],
     image: "/projects/chatapp.png",
     github: "https://github.com/harish-pasupuleti/ChatApp",
     category: "web",
   },
   {
-    name: "PrepInsights - Blog Platform",
+    name: "PrepInsights Blog",
     description:
-      "A dynamic blog platform developed using the MERN stack. Supports user authentication, post management, and a dashboard interface. Ideal for bloggers or admins to manage content with ease.",
+      "A MERN stack blog platform with authentication, post creation, and admin control.",
     tags: ["MongoDB", "Express", "React", "Node.js"],
     image: prep,
     github: "https://github.com/harish-pasupuleti/prepInsights",
     category: "web",
   },
   {
-    name: " URL Shortener",
+    name: "URL Shortener",
     description:
-      "A backend-focused project to shorten URLs using Node.js, Express, and MongoDB. It supports creating short links, redirection, and basic usage analytics. A clean and simple UI complements the RESTful API.",
+      "A backend project that shortens long URLs. Built with Node.js and MongoDB.",
     tags: ["Node.js", "MongoDB", "Express"],
     image: "/projects/url-shortener.png",
     github: "https://github.com/harish-pasupuleti/url-shortener",
     category: "web",
   },
-
-  // 🟢 BEGINNER PROJECTS
   {
-    name: " Live Weather App",
+    name: "Live Weather App",
     description:
-      "A responsive weather application built with React and OpenWeatherMap API. Users can search cities and view real-time weather details including temperature, wind, and humidity.",
+      "Check real-time weather info using OpenWeatherMap API. Built with React.",
     tags: ["React", "API"],
     image: wheather,
     github: "https://github.com/harish-pasupuleti/weather-react",
@@ -103,36 +99,34 @@ const projects = [
   {
     name: "Todo Manager",
     description:
-      "A simple task management app created with React. Supports adding, editing, completing, and deleting tasks with persistent storage using localStorage. Great for demonstrating React fundamentals.",
+      "A task manager using React. Supports add/edit/delete with localStorage.",
     tags: ["React"],
     image: todo,
     github: "https://github.com/harish-pasupuleti/Todo",
     category: "web",
   },
   {
-  name: "DataChat Agent – CSV Conversational Analysis",
-  description:
-    "A powerful Python-based data analysis agent that enables users to chat with their CSV files. Powered by NVIDIA’s Nemotron LLM, this tool lets users upload CSVs and ask questions in natural language (e.g., 'What’s the average revenue by region?'). It uses Pandas for parsing, NVIDIA API for LLM interaction, and Streamlit for the UI. Ideal for data professionals looking for an AI-driven assistant for quick insights.",
-  tags: ["Python", "NVIDIA LLM", "Streamlit", "Pandas", "AI"],
-  image: dt, // Replace with your image path
-  github: "https://github.com/harish-pasupuleti/Data_Analysis_agent", // Update if different
-  category: "others",
-}
-];
-
+    name: "DataChat Agent",
+    description:
+      "Chat with CSVs using NVIDIA Nemotron LLM. Built with Streamlit and Pandas.",
+    tags: ["Python", "NVIDIA LLM", "Streamlit", "Pandas", "AI"],
+    image: dt,
+    github: "https://github.com/harish-pasupuleti/Data_Analysis_agent",
+    category: "others",
+  },
+]
 
 export default function ProjectsSection() {
-  const [activeFilter, setActiveFilter] = useState("all");
-
+  const [activeFilter, setActiveFilter] = useState("all")
   const filteredProjects =
     activeFilter === "all"
       ? projects
-      : projects.filter((p) => p.category === activeFilter);
+      : projects.filter((p) => p.category === activeFilter)
 
   return (
-    <section id="projects" className="py-20">
+    <section id="projects" className="py-20 bg-background text-foreground font-sans">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Header */}
+        {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -140,11 +134,9 @@ export default function ProjectsSection() {
           viewport={{ once: true }}
           className="text-center mb-10"
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-            Projects
-          </h2>
-          <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-            Explore my projects across Web, ML, and other domains.
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">Projects</h2>
+          <p className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto">
+            Explore my projects across Web Development, AI, and beyond.
           </p>
         </motion.div>
 
@@ -173,7 +165,6 @@ export default function ProjectsSection() {
               viewport={{ once: true }}
             >
               <Card className="hover:shadow-lg hover:scale-[1.02] transition duration-300 h-full flex flex-col">
-                {/* Image */}
                 {project.image && (
                   <img
                     src={project.image}
@@ -181,12 +172,11 @@ export default function ProjectsSection() {
                     className="w-full h-48 object-cover rounded-t-lg"
                   />
                 )}
-
                 <CardContent className="p-6 flex flex-col flex-1">
-                  <h3 className="text-xl font-semibold text-foreground mb-2">
+                  <h3 className="text-lg md:text-xl font-semibold mb-2">
                     {project.name}
                   </h3>
-                  <p className="text-muted-foreground text-sm flex-1">
+                  <p className="text-sm md:text-base text-muted-foreground flex-1">
                     {project.description}
                   </p>
 
@@ -205,7 +195,7 @@ export default function ProjectsSection() {
                       href={project.github}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="mt-4 inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md text-sm transition"
+                      className="mt-4 inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md text-sm"
                     >
                       <Github className="w-4 h-4" />
                       GitHub
@@ -218,5 +208,5 @@ export default function ProjectsSection() {
         </div>
       </div>
     </section>
-  );
+  )
 }
