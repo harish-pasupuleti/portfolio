@@ -17,10 +17,12 @@ import {
   Menu,
   X,
 } from "lucide-react";
-import pro from "@/assets/profile.jpg"
+import pro from "@/assets/profile.jpg";
+
 const Sidebar = () => {
   const location = useLocation();
   const [open, setOpen] = useState(false);
+
   const [darkMode, setDarkMode] = useState(() => {
     if (typeof window !== "undefined") {
       return (
@@ -60,32 +62,32 @@ const Sidebar = () => {
       <div className="lg:hidden fixed top-4 left-4 z-50">
         <button
           onClick={() => setOpen(true)}
-          className="p-2 rounded-md bg-background text-foreground shadow"
+          className="p-2 rounded-md bg-background text-foreground shadow border border-border"
         >
-          <Menu />
+          <Menu className="w-5 h-5" />
         </button>
       </div>
 
-      {/* Mobile Overlay */}
+      {/* Overlay */}
       <div
-        className={`fixed inset-0 bg-black bg-opacity-50 z-40 lg:hidden transition-opacity duration-300 ${
+        className={`fixed inset-0 bg-black/50 z-40 transition-opacity duration-300 ${
           open ? "opacity-100" : "opacity-0 pointer-events-none"
-        }`}
+        } lg:hidden`}
         onClick={() => setOpen(false)}
       ></div>
 
       {/* Sidebar */}
       <aside
-        className={`w-80 h-screen fixed top-0 left-0 z-50 bg-background text-foreground border-r border-border flex flex-col justify-between transition-transform duration-300 transform
+        className={`w-72 h-screen fixed top-0 left-0 z-50 bg-card text-foreground border-r border-border flex flex-col justify-between transition-transform duration-300 transform
         ${open ? "translate-x-0" : "-translate-x-full"} lg:translate-x-0 lg:static lg:block`}
       >
-        {/* Scrollable Top Section */}
-        <div className="overflow-y-auto flex-1 px-6 pt-8 pb-4 scrollbar-thin font-sans text-base font-medium">
+        {/* Top Section */}
+        <div className="overflow-y-auto flex-1 px-6 pt-6 pb-4 scrollbar-thin scrollbar-thumb-muted-foreground scrollbar-track-muted">
           {/* Mobile Header */}
           <div className="lg:hidden flex justify-between items-center mb-6">
-            <h1 className="text-2xl font-bold">Menu</h1>
+            <h1 className="text-xl font-bold">Menu</h1>
             <button onClick={() => setOpen(false)}>
-              <X />
+              <X className="w-5 h-5" />
             </button>
           </div>
 
@@ -94,25 +96,24 @@ const Sidebar = () => {
             <img
               src={pro}
               alt="Profile"
-              className="w-28 h-28 rounded-full border-2 border-border shadow-md"
+              className="w-20 h-20 rounded-full border-2 border-border shadow-md object-cover"
             />
-            <h2 className="text-xl font-semibold mt-4">Pasupuleti Harish</h2>
-            <p className="text-sm text-muted-foreground mt-1">
-              Full Stack Developer | ML Enthusiast
-            </p>
+            <h2 className="text-lg font-bold mt-3">Pasupuleti Harish</h2>
+            <p className="text-sm text-muted-foreground mt-1">Full Stack Developer | ML Enthusiast</p>
           </div>
 
-          {/* Nav Links */}
+          {/* Navigation */}
           <nav>
-            <ul className="space-y-3">
+            <ul className="space-y-1">
               {navLinks.map(({ name, path, icon: Icon }) => (
                 <li key={name}>
                   <Link
                     to={path}
-                    className={`flex items-center gap-3 py-3 px-4 rounded-lg transition-all duration-300 font-medium text-[16px] ${
+                    className={`flex items-center gap-3 py-2.5 px-4 rounded-lg transition-colors duration-200 text-[15px] font-medium
+                    ${
                       location.pathname === path
-                        ? "bg-blue-600 text-white dark:bg-blue-500 shadow scale-[1.03]"
-                        : "hover:bg-muted dark:hover:bg-muted text-muted-foreground"
+                        ? "bg-primary text-primary-foreground"
+                        : "hover:bg-muted text-muted-foreground hover:text-foreground"
                     }`}
                   >
                     <Icon className="w-5 h-5" />
@@ -124,29 +125,29 @@ const Sidebar = () => {
           </nav>
         </div>
 
-        {/* Footer */}
-        <div className="px-6 py-6 border-t border-border text-center space-y-4 font-sans">
+        {/* Bottom Section */}
+        <div className="px-6 py-5 border-t border-border text-center">
           <a
             href="https://drive.google.com/file/d/1ScpegabWyGsp6qcTjd7GPNoPBpBmU8m1/view?usp=sharing"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-block bg-blue-600 hover:bg-blue-700 text-white px-5 py-2.5 rounded-full shadow transition"
+            className="inline-flex items-center justify-center bg-blue-600 hover:bg-blue-700 text-white px-5 py-2.5 rounded-full shadow transition"
           >
-            <Download className="inline w-4 h-4 mr-1" />
+            <Download className="w-4 h-4 mr-2" />
             Resume
           </a>
 
-          <div className="flex justify-center">
+          <div className="flex justify-center mt-4 space-x-3">
             <button
               onClick={toggleTheme}
               className="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition"
               title="Toggle Theme"
             >
-              {darkMode ? <Sun /> : <Moon />}
+              {darkMode ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
             </button>
           </div>
 
-          <div className="flex justify-center gap-6 text-xl">
+          <div className="flex justify-center gap-5 text-xl mt-4">
             <a
               href="https://github.com/harish-pasupuleti"
               target="_blank"
