@@ -128,7 +128,7 @@ const Sidebar = () => {
         {/* Bottom Section */}
         <div className="px-6 py-5 border-t border-border text-center">
           <a
-            href="https://drive.google.com/file/d/1ScpegabWyGsp6qcTjd7GPNoPBpBmU8m1/view?usp=sharing"
+            href="https://drive.google.com/file/d/1fkZoNoI1k2QAMHMXzVbsWDMraa19vtfb/view?usp=sharing"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center justify-center bg-blue-600 hover:bg-blue-700 text-white px-5 py-2.5 rounded-full shadow transition"
